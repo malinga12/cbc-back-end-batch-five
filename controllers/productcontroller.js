@@ -111,10 +111,10 @@ export async function getProductId(req, res){
 
   try{
 
-    const product = await Product.fineOne(
+    const product = await Product.findOne(
       {productId : productId}
     )
-    if(product== null){
+    if(product == null){
       res.status(404).json(
         { message: "product not found" }
       )
