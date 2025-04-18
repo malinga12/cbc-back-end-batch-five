@@ -74,3 +74,6 @@ const orderSchema = mongoose.Schema({
         default : Date.now
     }
 })
+
+const Order = mongoose.model("orders", orderSchema)
+export default Order;

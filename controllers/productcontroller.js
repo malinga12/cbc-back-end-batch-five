@@ -1,5 +1,5 @@
 import Product from "../model/product.js";
-import { isAdmin } from "./usercontroller.js";
+import { isAdmin } from "./userController.js";
 
 // export function getProduct(res, req){
 //   Product.find().then(

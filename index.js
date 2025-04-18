@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import productRouter from "./routers/productRouts.js";
 import userRouter from "./routers/userRouts.js";
 import jwt from "jsonwebtoken";
+import orderRouter from "./routers/orderRouts.js";
 
 
 
@@ -62,29 +63,9 @@ mongoose.connect("mongodb+srv://admin:123@cluster0.hwfej.mongodb.net/?retryWrite
     console.log("connection failed")
 })
 
-
-app.delete("/", (req, res) => {
-
-    res.json(
-        { message: "hoi  hio delete" }
-    )
-
-})
-
-
-
-app.put("/", (req, res) => {
-
-    res.json(
-        { message: "hoi  hio put" }
-    )
-
-})
-
-
-
 app.use("/products", productRouter);
 app.use("/users", userRouter);
+app.use("/orders",orderRouter);
 
 app.listen(3000, () => {
     console.log("hi")
