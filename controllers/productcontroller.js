@@ -74,3 +74,37 @@ export async function deleteProduct(req, res) {
     })
   }
 }
+
+
+export async function updateProduct(req, res){
+  if(!isAdmin(req)) {
+    res.status(403).json(
+      { message : "you are not allowed to update product" }
+    )
+    return
+  }
+
+  const productId = req.params.productId
+  const updatingData = req.body
+
+  try{
+
+    await Product.updateOne(
+      {productId : productId},
+      updatingData // Corrected to use productId from params
+    )
+
+    res.json(
+      { message: "product updated successfully" }
+    )
+
+  }catch(err){
+    res.status(500).json({
+      message: "Error updating product",
+      error: err
+    })
+  }
+}
+
+
+
