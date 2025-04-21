@@ -27,6 +27,11 @@ const orderSchema = mongoose.Schema({
         required : true,
         default : "pending"
     },
+
+    labelledTotal : {
+        type : Number,
+        required : true
+    },
     total : {
         type : Number,
         required : true
