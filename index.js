@@ -5,10 +5,11 @@ import productRouter from "./routers/productRouts.js";
 import userRouter from "./routers/userRouts.js";
 import jwt from "jsonwebtoken";
 import orderRouter from "./routers/orderRouts.js";
+import cors from 'cors'
 
 
 
-let app = express();
+const app = express();
 // function successfullyStarted(){
 //     console.log("hi");
 // }
@@ -24,7 +25,9 @@ let app = express();
 
 
 //mongodb+srv://admin:123@cluster0.hwfej.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+app.use(cors())
 app.use(bodyParser.json())
+
 
 app.use((req,res,next)=>{
     const tokenString = req.header("Authorization");

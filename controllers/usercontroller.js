@@ -8,7 +8,7 @@ export function createUser(req,res){
         if(req.user != null){    //login admin kenekd
             if(req.user.role != "admin"){ //admmin kenekta asamanada
                 res.status(403).json(
-                    {massage : "you are not authorized to create an admin account.please login "}
+                    {message : "you are not authorized to create an admin account.please login "}
                 ) 
                 return
             }
@@ -16,7 +16,7 @@ export function createUser(req,res){
 
         }else{
         res.status(403).json(
-            {massage : "you are not authorized to create an admin account.please login first "}
+            {message : "you are not authorized to create an admin account.please login first "}
         ) 
               return
     }
@@ -56,7 +56,7 @@ export function loginUser(req, res){
         (user)=>{
             if(user == null){
                 res.status(404).json({
-                    massage : 'user not found'
+                    message : 'user not found'
                 })
             }else{
                 const isPasswordCorrect = bcrypt.compareSync(password, user.password)
@@ -72,12 +72,12 @@ export function loginUser(req, res){
                     "batck-05-backend-2025"
                 )
                     res.json({
-                        massage : "login successfuly",
+                        message : "login successfuly",
                         token : token
                     })
                 }else{
                     res.status(404).json({
-                        massage : "password is incorrect"
+                        message : "password is incorrect"
                     })
                 }
             }
