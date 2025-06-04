@@ -5,7 +5,10 @@ import productRouter from "./routers/productRouts.js";
 import userRouter from "./routers/userRouts.js";
 import jwt from "jsonwebtoken";
 import orderRouter from "./routers/orderRouts.js";
-import cors from 'cors'
+import cors from 'cors';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 
 
@@ -57,7 +60,7 @@ app.use((req,res,next)=>{
 
 })
 
-mongoose.connect("mongodb+srv://admin:123@cluster0.hwfej.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("connected to the database")
 
 }
