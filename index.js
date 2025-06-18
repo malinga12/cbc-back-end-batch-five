@@ -39,7 +39,7 @@ app.use((req,res,next)=>{
 
         // console.log(token)
 
-        jwt.verify(token,"batck-05-backend-2025",(err, decoded)=>{
+        jwt.verify(token,process.env.JWT_KEY,(err, decoded)=>{
             if(decoded != null){
                 console.log(decoded)
                 req.user = decoded
